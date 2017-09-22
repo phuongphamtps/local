@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookService", "BookService\BookService.csproj", "{C13E980D-5264-4E15-A247-02E9BC754D38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageCustomers", "ManageCustomers\ManageCustomers.csproj", "{C1E28CBA-6DD1-40E8-BBF4-ACC93651783C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp", "ContactsApp\ContactsApp.csproj", "{953EC785-D879-4781-BBC4-11CA9FBEA49E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularBookService", "AngularBookService\AngularBookService.csproj", "{716FD2EF-DB44-4351-8869-6F36947F49FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C13E980D-5264-4E15-A247-02E9BC754D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C13E980D-5264-4E15-A247-02E9BC754D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C13E980D-5264-4E15-A247-02E9BC754D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C13E980D-5264-4E15-A247-02E9BC754D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E28CBA-6DD1-40E8-BBF4-ACC93651783C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1E28CBA-6DD1-40E8-BBF4-ACC93651783C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1E28CBA-6DD1-40E8-BBF4-ACC93651783C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1E28CBA-6DD1-40E8-BBF4-ACC93651783C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{953EC785-D879-4781-BBC4-11CA9FBEA49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{953EC785-D879-4781-BBC4-11CA9FBEA49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{953EC785-D879-4781-BBC4-11CA9FBEA49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{953EC785-D879-4781-BBC4-11CA9FBEA49E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{716FD2EF-DB44-4351-8869-6F36947F49FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{716FD2EF-DB44-4351-8869-6F36947F49FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{716FD2EF-DB44-4351-8869-6F36947F49FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{716FD2EF-DB44-4351-8869-6F36947F49FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

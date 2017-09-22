@@ -1,0 +1,197 @@
+﻿
+<div class="page-header">
+    <h1>Book Service</h1>
+</div>
+
+<div ng-app="BookApp" ng-controller="BookCtrl" class="container-fluid">
+    <div class="row" style="margin-bottom:5px">
+        <div class="col-lg-3">
+            <div class="input-group">
+                <!--Search Books-->
+                <input type="text" ng-model="searchText" class="form-control" placeholder="Search Books" />
+                <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-search"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!--Get Books-->
+        @*<div class="col-sm-12">*@
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Books</h2>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <th>Book Id</th>
+                        <th>Author Name</th>
+                        <th>Book Name</th>
+                        <th>Actions</th>
+                    </tr>
+
+                    <tr ng-repeat="book in books">
+                        <td class="col-lg-1">{{book.Id}}</td>
+                        <td class="col-lg-2">{{book.AuthorName}}</td>
+                        <td class="col-lg-3">{{book.Title}}</td>
+                        <td class="col-lg-6">
+                            <button ng-click="getBookById(book.Id)">Detail</button>
+                            <button ng-model="$scope.Book" ng-click="editBookInfo(books[$index])">Edit</button>
+                            <button ng-click="delete($index)">Delete</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        @*</div>*@
+    </div>
+
+    <div class="row">
+        <!--Book Details-->
+        @*<div class="col-md-12">*@
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Book Detail</h2>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <th>Book Id</th>
+                        <th>Author Name</th>
+                        <th>Book Name</th>
+                        <th>Year</th>
+                        <th>Genre</th>
+                        <th>Price</th>
+                    </tr>
+
+                    <tr>
+                        <td>{{detail.Id}}</td>
+                        <td>{{detail.AuthorName}}</td>
+                        <td>{{detail.Title}}</td>
+                        <td>{{detail.Year}}</td>
+                        <td>{{detail.Genre}}</td>
+                        <td>{{detail.Price}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    @*</div>*@
+</div>
+
+<div class="row">
+    <div ng-show="Book.Id != 0 ">
+        <!--Edit Book-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Edit Book</h2>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Author Name</label>
+                        <div class="col-sm-10">
+                            <select ng-model="Book.AuthorId">
+                                <option value="">---Select an author---</option>
+                                <option ng-repeat="author in authors" value="{{author.Id}}">{{author.Name}}</option>
+                            </select>
+                            <label>AuthorID = {{Book.AuthorId}}</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label hidden="hidden" class="col-sm-2 control-label">Book Id</label>
+                        <div class="col-sm-10" hidden="hidden">
+                            <input type="text" ng-model="Book.Id" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Book Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="Book.Title" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Year</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="Book.Year" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Genre</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="Book.Genre" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Price</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="Book.Price" class="form-control" />
+                        </div>
+                    </div>
+
+                    <button ng-click="editBook()" class="btn btn-default">Edit</button>
+                    <button ng-click="clear()" class="btn btn-default">Go to Add</button>
+                    <label>{{statusText}}</label>
+                </form>
+            </div>
+        </div>
+        <!--End Edit book-->
+    </div>
+
+    <div ng-hide="Book.Id != 0 ">
+        <!--Add a New Book-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Add Book</h2>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Author Name</label>
+                        <div class="col-sm-10">
+                            <select ng-model="Book.AuthorId">
+                                <option value="">---Select an author---</option>
+                                <option ng-repeat="author in authors" value="{{author.Id}}">{{author.Name}}</option>
+                            </select>
+                            <label>AuthorID = {{Book.AuthorId}}</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Book Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="Book.Title" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Year</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="Book.Year" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Genre</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="Book.Genre" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Price</label>
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="Book.Price" class="form-control" />
+                        </div>
+                    </div>
+
+                    <button ng-click="addBook()" class="btn btn-default">Add</button>
+                    <button ng-click="clear()" class="btn btn-default">Clear</button>
+                    <label>{{statusCode}}</label>
+                </form>
+            </div>
+        </div>
+        <!--End Add new book-->
+    </div>
+</div>
+</div>

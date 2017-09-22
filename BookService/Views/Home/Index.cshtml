@@ -1,0 +1,128 @@
+﻿@*@section script{
+        @Scripts.Render("~/bundle/app")
+    }*@
+
+<!-- define the HTML for the app, and add data binding between the HTML and the view model
+The important elements are the ones with data-bind attributes. This attribute links the HTML to the view model.-->
+
+<div class="page-header">
+    <h1>Book Service</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Books</h2>
+            </div>
+
+            <div class="panel-body">
+                <ul class="list-unstyled" data-bind="foreach: books">
+                    <li>
+                        <!--Here the text binding "data-bind" reads the Author property of each book.-->
+                        <strong><span data-bind="text: AuthorName"></span></strong>:
+                        <span data-bind="text: Title"></span>
+                        <!--add a data-bind element to the Details link-->
+                        <small><a href="#" data-bind="click: $parent.getBookDetail">Details</a></small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="alert alert-danger" data-bind="visible: error">
+            <p data-bind="text: error"></p>
+        </div>
+    </div>
+
+    <!--Book details
+        This markup creates a table that is data-bound to the properties of the 'detail' observable in the view model.
+        The "-- ko -- " syntax lets you include a Knockout binding outside of a DOM element.
+        In this case, the if binding causes this section of markup to be displayed only when details is non-null.
+    -->
+    <!-- ko if:detail() -->
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Detail</h2>
+            </div>
+            <table class="table">
+                <tr>
+                    <td>Author</td>
+                    <td data-bind="text: detail().AuthorName"></td>
+                </tr>
+
+                <tr>
+                    <td>Title</td>
+                    <td data-bind="text: detail().Title"></td>
+                </tr>
+
+                <tr>
+                    <td>Year</td>
+                    <td data-bind="text: detail().Year"></td>
+                </tr>
+
+                <tr>
+                    <td>Genre</td>
+                    <td data-bind="text: detail().Genre"></td>
+                </tr>
+
+                <tr>
+                    <td>Price</td>
+                    <td data-bind="text: detail().Price"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- /ko -->
+
+    <!--Add new book
+        This markup creates a form for submitting a new author.
+        The values for the 'author drop-down list' are data-bound to the 'authors' observable in the view model.
+        For the other 'form inputs', the values are data-bound to the 'newBook' property of the view model-->
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Add Book</h2>
+            </div>
+
+            <div class="panel-body">
+                <!--The 'addBook' function reads the current values of the data-bound 'form inputs' to create a JSON object. 
+                    Then it POSTs the JSON object to /api/books-->
+                <form class="form-horizontal" data-bind="submit: addBook">
+                    <div class="form-group">
+                        <label for="inputAuthor" class="col-sm-2 control-label">Author</label>
+                        <div class="col-sm-10">
+                            <select data-bind="options:authors, optionsText:'Name', value: newBook.Author"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" data-bind="with: newBook">
+                        <label for="inputTitle" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputTitle" data-bind="value:Title"/>
+                        </div>
+
+                        <label for="inputYear" class="col-sm-2 control-label">Year</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="inputYear" data-bind="value:Year" />
+                        </div>
+
+                        <label for="inputGenre" class="col-sm-2 control-label">Genre</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputGenre" data-bind="value:Genre" />
+                        </div>
+
+                        <label for="inputPrice" class="col-sm-2 control-label">Price</label>
+                        <div class="col-sm-10">
+                            <input type="number" step="any" class="form-control" id="inputPrice" data-bind="value:Price" />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--End Add new book-->
+
+</div>

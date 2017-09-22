@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contacts</h2>
+
+<div ng-app="contactsApp" ng-controller="contactController" class="container">
+    <div class="row">
+        <div class="logs-table col-xs-12">
+            <table class="table table-bordered table-hover" style="width:100%">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Country</th>
+                </tr>
+
+                <tr ng-repeat="contact in contacts">
+                    <td>{{contact.Id}}</td>
+                    <td>{{contact.FullName}}</td>
+                    <td>{{contact.Address}}</td>
+                    <td>{{contact.City}}</td>
+                    <td>{{contact.Country}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
