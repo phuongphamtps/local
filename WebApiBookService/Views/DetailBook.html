@@ -1,0 +1,34 @@
+﻿
+<div class="row">
+    <!--Book Details-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Book Detail</h2>
+        </div>
+        <div class="panel-body">
+            <label>
+                Check Message: {{checkmessage}}
+                Detail Status: {{status}}
+            </label>
+            <table class="table">
+                <tr>
+                    <th>Book Id</th>
+                    <th>Author Name</th>
+                    <th>Book Name</th>
+                    <th>Year</th>
+                    <th>Genre</th>
+                    <th>Price</th>
+                </tr>
+
+                <tr>
+                    <td>{{detail.Id}}</td>
+                    <td>{{detail.AuthorName}}</td>
+                    <td>{{detail.Title}}</td>
+                    <td>{{detail.Year}}</td>
+                    <td>{{detail.Genre}}</td>
+                    <td>{{detail.Price}}</td>                
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

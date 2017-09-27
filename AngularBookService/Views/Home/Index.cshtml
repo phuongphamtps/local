@@ -39,6 +39,7 @@
                         <td class="col-lg-6">
                             <button ng-click="getBookById(book.Id)">Detail</button>
                             <button ng-model="$scope.Book" ng-click="editBookInfo(books[$index])">Edit</button>
+                            @*<a href="#/ebook">Edit</a>*@
                             <button ng-click="delete($index)">Delete</button>
                         </td>
                     </tr>
@@ -47,7 +48,7 @@
         </div>
         @*</div>*@
     </div>
-
+    
     <div class="row">
         <!--Book Details-->
         @*<div class="col-md-12">*@
@@ -107,34 +108,39 @@
                             <input type="text" ng-model="Book.Id" class="form-control" />
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Book Name</label>
                         <div class="col-sm-10">
                             <input type="text" ng-model="Book.Title" class="form-control" />
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Year</label>
                         <div class="col-sm-10">
-                            <input type="text" ng-model="Book.Year" class="form-control" />
+                            <input type="number" min="0" step="1" ng-model="Book.Year" class="form-control" />
+                            <span class="validity"></span>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Genre</label>
                         <div class="col-sm-10">
                             <input type="text" ng-model="Book.Genre" class="form-control" />
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Price</label>
                         <div class="col-sm-10">
-                            <input type="text" ng-model="Book.Price" class="form-control" />
+                            <input type="number" min="0" step="0.01" ng-model="Book.Price" class="form-control" />
+                            <span class="validity"></span>
                         </div>
                     </div>
 
                     <button ng-click="editBook()" class="btn btn-default">Edit</button>
                     <button ng-click="clear()" class="btn btn-default">Go to Add</button>
-                    <label>{{statusText}}</label>
                 </form>
             </div>
         </div>
@@ -163,13 +169,14 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Book Name</label>
                         <div class="col-sm-10">
-                            <input type="text" ng-model="Book.Title" class="form-control" />
+                            <input type="text" ng-model="Book.Title" class="form-control" required />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Year</label>
                         <div class="col-sm-10">
-                            <input type="text" ng-model="Book.Year" class="form-control" />
+                            <input type="number" min="0" step="1" ng-model="Book.Year" class="form-control" />
+                            <span class="validity"></span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -181,13 +188,13 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Price</label>
                         <div class="col-sm-10">
-                            <input type="text" ng-model="Book.Price" class="form-control" />
+                            <input type="number" min="0" step="0.01" ng-model="Book.Price" class="form-control" />
+                            <span class="validity"></span>
                         </div>
                     </div>
 
                     <button ng-click="addBook()" class="btn btn-default">Add</button>
                     <button ng-click="clear()" class="btn btn-default">Clear</button>
-                    <label>{{statusCode}}</label>
                 </form>
             </div>
         </div>

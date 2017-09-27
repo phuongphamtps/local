@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp", "ContactsApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularBookService", "AngularBookService\AngularBookService.csproj", "{716FD2EF-DB44-4351-8869-6F36947F49FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiBookService", "WebApiBookService\WebApiBookService.csproj", "{10BB494E-B88C-4D55-B8CC-5A385B21B17F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{716FD2EF-DB44-4351-8869-6F36947F49FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{716FD2EF-DB44-4351-8869-6F36947F49FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{716FD2EF-DB44-4351-8869-6F36947F49FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10BB494E-B88C-4D55-B8CC-5A385B21B17F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10BB494E-B88C-4D55-B8CC-5A385B21B17F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10BB494E-B88C-4D55-B8CC-5A385B21B17F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10BB494E-B88C-4D55-B8CC-5A385B21B17F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

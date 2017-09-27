@@ -1,0 +1,45 @@
+﻿
+<div class="row" style="margin-bottom:5px">
+    <div class="col-lg-3">
+        <div class="input-group">
+            <!--Search Books-->
+            <input type="text" ng-model="searchText" class="form-control" placeholder="Search Books" />
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!--Get Books-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Books</h2>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Book Id</th>
+                    <th>Author Name</th>
+                    <th>Book Name</th>
+                    <th>Actions</th>
+                </tr>
+
+                <tr ng-repeat="book in books">
+                    <td class="col-lg-1">{{book.Id}}</td>
+                    <td class="col-lg-2">{{book.AuthorName}}</td>
+                    <td class="col-lg-3">{{book.Title}}</td>
+                    <td class="col-lg-6">
+                        <!--<button ng-click="getBookById(book.Id)">Detail</button>-->
+                        <!--<button ng-model="$scope.Book" ng-click="editBookInfo(books[$index])">Edit</button>-->
+                        <!--<a href="#deletebook" ng-click="delete">Delete</a>-->
+                        <a href="#/details/{{book.Id}}">Detail</a>
+                        <a href="#/edit/{{book.Id}}">Edit</a>
+                        <button class="btn btn-default" ng-click="delete($index)">Delete</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

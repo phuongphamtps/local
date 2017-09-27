@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html ng-app="routeApp">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/bookScripts/script.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/jquery-1.9.1.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body ng-controller="bookCtrl">
+    <div class="page-header text-center">
+        <h1>Book Service</h1>
+    </div>
+    <div class="container-fluid">
+        <a href="#"><i class="glyphicon glyphicon-home"></i>Home</a>
+        <a href="#addbook">New</a>
+        <a href="#detailbook">Detail</a>
+        <a href="#editbook">Edit</a>
+        <div ng-view> </div>
+    </div>
+</body>
+</html>

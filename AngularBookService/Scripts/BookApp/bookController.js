@@ -1,6 +1,15 @@
 ﻿/// <reference path="../angular.min.js" />
 
-var bookApp = angular.module('BookApp', []);
+var bookApp = angular.module("BookApp", ["ngRoute"]);
+
+bookApp.config(function ($routeProvider) {
+    $routeProvider
+    .when("/ebook", {
+        templateUrl: "Views/Book/EditPage.html",
+        controller: "BookCtrl"
+    })
+});
+
 bookApp.controller('BookCtrl', bookController);
 
 function bookController($scope, $http) {
